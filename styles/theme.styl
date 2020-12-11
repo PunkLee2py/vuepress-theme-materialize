@@ -1,0 +1,27 @@
+makeAlphaColor(name, colorVal)
+    {name}: colorVal
+
+    for i in 1 .. 9
+        {name}-{i}: rgba(colorVal, floor((i * 0.1), 2))
+
+:root
+    /* Non custom */
+    --color-bg-html: transparent
+    --filter: brightness(1)
+    /* Base Color */
+    makeAlphaColor(--accentColor, $accentColor)
+    --relativeAccentColor: $relativeAccentColor
+    --textColor: $textColor
+    --relativeTextColor: $relativeTextColor
+    --boxShadowColor: $boxShadowColor
+    --zoomBgColor: $zoomBgColor
+    /* Code Color */
+    --codeBgColor: $codeBgColor
+    --codeLightColor: $codeLightColor
+    --blockTipColor: $blockTipColor
+    --blockWarnColor: $blockWarnColor
+    --blockDangerColor: $blockDangerColor
+    /* Content */
+    --separatorContent: $separatorContent
+    --listContent: $listContent
+    --hrContent: $hrContent

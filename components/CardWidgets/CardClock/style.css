@@ -1,0 +1,201 @@
+/* splitting.css */
+/* Recommended styles for Splitting */
+.splitting .word,
+.splitting .char {
+    display: inline-block;
+}
+
+/* Psuedo-element chars */
+.splitting .char {
+    position: relative;
+}
+
+/**
+ * Populate the psuedo elements with the character to allow for expanded effects
+ * Set to `display: none` by default; just add `display: block` when you want
+ * to use the psuedo elements
+ */
+.splitting .char::before,
+.splitting .char::after {
+    content: attr(data-char);
+    position: absolute;
+    top: 0;
+    left: 0;
+    visibility: hidden;
+    transition: inherit;
+    user-select: none;
+}
+
+/* Expanded CSS Variables */
+
+.splitting {
+    /* The center word index */
+    --word-center: calc((var(--word-total) - 1) / 2);
+
+    /* The center character index */
+    --char-center: calc((var(--char-total) - 1) / 2);
+
+    /* The center character index */
+    --line-center: calc((var(--line-total) - 1) / 2);
+}
+
+.splitting .word {
+    line-height: 1.3;
+    /* Pecent (0-1) of the word's position */
+    --word-percent: calc(var(--word-index) / var(--word-total));
+
+    /* Pecent (0-1) of the line's position */
+    --line-percent: calc(var(--line-index) / var(--line-total));
+}
+
+.splitting .char {
+    /* Percent (0-1) of the char's position */
+    --char-percent: calc(var(--char-index) / var(--char-total));
+
+    /* Offset from center, positive & negative */
+    --char-offset: calc(var(--char-index) - var(--char-center));
+
+    /* Absolute distance from center, only positive */
+    --distance: calc(
+        (var(--char-offset) * var(--char-offset)) / var(--char-center)
+    );
+
+    /* Distance from center where -1 is the far left, 0 is center, 1 is far right */
+    --distance-sine: calc(var(--char-offset) / var(--char-center));
+
+    /* Distance from center where 1 is far left/far right, 0 is center */
+    --distance-percent: calc((var(--distance) / var(--char-center)));
+}
+
+/* style.css */
+.clock {
+    --time-offset: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(34, 34, 34, 0.8);
+    text-align: center;
+    display: -webkit-box;
+    display: flex;
+    -webkit-box-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    align-items: center;
+    height: 16rem;
+    width: 100%;
+    color: #f1f1f1;
+    font-family: monospace;
+    font-size: 2rem;
+    font-family: "Oswald", sans-serif;
+    letter-spacing: 0.1em;
+    -webkit-perspective: 500px;
+    perspective: 500px;
+    --h1: 1;
+    --h2: 2;
+    --m1: 3;
+    --m2: 4;
+    --s1: 5;
+    --s2: 6;
+}
+.clock,
+.clock:before,
+.clock * {
+    box-sizing: border-box;
+    -webkit-transform-style: preserve-3d;
+    transform-style: preserve-3d;
+}
+/* .clock:before {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: -webkit-gradient(
+        linear,
+        left top,
+        left bottom,
+        color-stop(20%, rgba(34, 34, 34, 0.9)),
+        color-stop(transparent),
+        color-stop(transparent),
+        color-stop(80%, rgba(34, 34, 34, 0.9))
+    );
+    background: linear-gradient(
+        to bottom,
+        rgba(34, 34, 34, 0.9) 20%,
+        transparent calc(50% - 0.4ch),
+        transparent calc(50% + 0.4ch),
+        rgba(34, 34, 34, 0.9) 80%
+    );
+    -webkit-transform: translateZ(2.6em);
+    transform: translateZ(2.6em);
+} */
+
+.colon {
+    display: inline-block;
+    opacity: 0.8;
+    -webkit-transform: translateZ(2.5em);
+    transform: translateZ(2.5em);
+    width: 1ch;
+    margin: 0;
+    text-align: center;
+}
+
+.cog {
+    position: relative;
+    width: 1ch;
+    height: 1ch;
+    margin: -0.25ch 0.1ch 0;
+    display: inline-block;
+    -webkit-transition: -webkit-transform 0.3s cubic-bezier(0.4, 0, 0.6, 1);
+    transition: -webkit-transform 0.3s cubic-bezier(0.4, 0, 0.6, 1);
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.6, 1);
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.6, 1),
+        -webkit-transform 0.3s cubic-bezier(0.4, 0, 0.6, 1);
+    -webkit-transform: rotateX(
+        calc(-1turn * (var(--unit) / var(--char-total)))
+    );
+    transform: rotateX(calc(-1turn * (var(--unit) / var(--char-total))));
+}
+.cog .word,
+.cog .char {
+    position: absolute;
+    top: 0%;
+    left: 0%;
+    width: 1ch;
+    height: 1ch;
+}
+.cog .char {
+    -webkit-transform: rotateX(calc(4deg + (360deg * var(--char-percent))))
+        translateZ(2.5em);
+    transform: rotateX(calc(4deg + (360deg * var(--char-percent))))
+        translateZ(2.5em);
+}
+
+.tens {
+    text-align: right;
+}
+
+.hours.tens {
+    --unit: var(--h1);
+}
+
+.hours {
+    --unit: var(--h2);
+}
+
+.minutes.tens {
+    --unit: var(--m1);
+}
+
+.minutes {
+    --unit: var(--m2);
+}
+
+.seconds.tens {
+    --unit: var(--s1);
+}
+
+.seconds {
+    --unit: var(--s2);
+}

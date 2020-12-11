@@ -1,0 +1,155 @@
+$hoverable(sec = 0.3)
+    transition: box-shadow sec s
+
+    &:hover
+        box-shadow: 0 8px 17px 0 var(--boxShadowColor), 0 6px 20px 0 rgba(0, 0, 0, 0.19)
+
+.bold
+    font-weight: bold
+
+.display-block
+    display: block !important
+
+.flex-between
+    display: flex !important
+    justify-content: space-between
+
+/* Text shadows */
+.text-shadow
+    text-shadow: 0.1em 0.1em var(--accentColor)
+
+.text-shadow-fuzzy
+    text-shadow: 0.1em 0.1em 0.2em var(--accentColor)
+
+.text-shadow-white
+    color: white
+    text-shadow: black 0 0 0.2em
+
+.text-shadow-multiple
+    text-shadow: 0.2em 0.5em 0.1em #600, -0.3em 0.1em 0.1em #060, 0.4em -0.3em 0.1em #006
+
+.text-shadow-outline
+    color: white
+    text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black
+
+.text-shadow-convex
+    text-shadow: -1px -1px white, 1px 1px black
+
+.text-shadow-concave
+    text-shadow: 1px 1px white, -1px -1px black
+
+.text-shadow-neon
+    text-shadow: 0 0 0.2em var(--accentColor)
+
+/* Image Filter */
+img.blur
+    -webkit-filter: blur(4px)
+    filter: blur(4px)
+
+img.brightness
+    -webkit-filter: brightness(250%)
+    filter: brightness(250%)
+
+img.contrast
+    -webkit-filter: contrast(180%)
+    filter: contrast(180%)
+
+img.grayscale
+    -webkit-filter: grayscale(100%)
+    filter: grayscale(100%)
+
+img.huerotate
+    -webkit-filter: hue-rotate(180deg)
+    filter: hue-rotate(180deg)
+
+img.invert
+    -webkit-filter: invert(100%)
+    filter: invert(100%)
+
+img.opacity
+    -webkit-filter: opacity(50%)
+    filter: opacity(50%)
+
+img.saturate
+    -webkit-filter: saturate(7)
+    filter: saturate(7)
+
+img.sepia
+    -webkit-filter: sepia(100%)
+    filter: sepia(100%)
+
+img.shadow
+    -webkit-filter: drop-shadow(8px 8px 10px green)
+    filter: drop-shadow(8px 8px 10px green)
+
+/* Flex */
+.flex
+    display: flex
+
+    &.middle
+        align-items: center
+
+    &.bottom
+        align-items: flex-end
+
+.flex.start
+    justify-content: flex-start
+
+.flex.center
+    justify-content: center
+
+.flex.end
+    justify-content: flex-end
+
+.flex.center-center
+    justify-content: center
+    align-items: center
+
+/* Cover */
+.inner-wrap
+    position: absolute
+    top: 0
+    left: 0
+    width: 100%
+    height: 100%
+    content: ''
+
+/* Margin */
+/* Padding */
+/* Height */
+for i in 0 .. 10
+    .border-radius-{i}
+        border-radius: unit(i, 'px') !important
+
+    .m-{i}
+        margin: unit(i, '%') !important
+
+    .mt-{i}
+        margin-top: unit(i, '%') !important
+
+    .mb-{i}
+        margin-bottom: unit(i, '%') !important
+
+    .ml-{i}
+        margin-left: unit(i, '%') !important
+
+    .mr-{i}
+        margin-right: unit(i, '%') !important
+
+    .p-{i}
+        padding: unit(i, '%') !important
+
+    .pt-{i}
+        padding-top: unit(i, '%') !important
+
+    .pb-{i}
+        padding-bottom: unit(i, '%') !important
+
+    .pl-{i}
+        padding-left: unit(i, '%') !important
+
+    .pr-{i}
+        padding-right: unit(i, '%') !important
+
+    .h-{i}
+        height: unit(i, 'rem') !important

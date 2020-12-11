@@ -1,0 +1,664 @@
+@require '~materialize/css/materialize.min.css'
+@require './theme'
+@require './code'
+@require './custom-code'
+@require './util'
+@require './font'
+@require './animate'
+@require './palette'
+
+/* ====================================
+============= Materialize =============
+==================================== */
+/* Container */
+.container
+    margin: 0 auto
+    max-width: 1280px
+    width: 100%
+
+    @media only screen and (min-width: $screenMedium)
+        width: 98%
+
+    @media only screen and (min-width: $screenLarge)
+        width: 96%
+
+/* Material Icons */
+i.tiny
+    font-size: 0.5rem
+
+i.small
+    font-size: 1rem
+
+.material-icons
+    font-size: 1.5rem
+
+i.medium
+    font-size: 2rem
+
+i.large
+    font-size: 4rem
+
+/* input-field */
+.input-field label
+    color: var(--textColor)
+
+.input-field input[type=text]:focus:not([readonly]) + label, .input-field input[type=email]:focus:not([readonly]) + label, .input-field input[type=password]:focus:not([readonly]) + label, .input-field textarea:focus + label, .input-field textarea:focus:not([readonly]) + label
+    color: var(--accentColor)
+
+.input-field input[type=text]:focus:not(.invalid), .input-field input[type=email]:focus:not(.invalid), .input-field input[type=password]:focus:not(.invalid), .input-field textarea:focus:not(.invalid), .input-field textarea:focus:not([readonly]):not(.invalid)
+    border-bottom: 1px solid var(--accentColor)
+    box-shadow: 0 1px 0 0 var(--accentColor)
+
+/* Table */
+tr
+    border-bottom: 1px solid var(--textColor)
+
+table.highlight>tbody>tr:hover
+    background-color: var(--accentColor-1)
+
+table.centered td
+    text-align: center
+
+table.centered td.valign-wrapper
+    justify-content: center
+
+/* Button */
+.button, .btn, .btn-large, .btn-small, .btn-floating
+    transition: all unit($transitionTime, 's')
+    border-radius: 3px
+    color: var(--relativeTextColor)
+    background-color: var(--accentColor)
+
+    &:hover
+        background-color: var(--accentColor-8)
+
+    &:focus
+        background-color: var(--accentColor-6)
+
+/* Switch Btn */
+.switch label input[type=checkbox]:checked+.lever
+    background-color: var(--accentColor-5)
+
+    &:after
+        background-color: var(--accentColor)
+
+    &:before
+        background-color: var(--accentColor)
+
+input[type=checkbox]:checked:not(:disabled) ~ .lever:active::before, input[type=checkbox]:checked:not(:disabled).tabbed:focus ~ .lever::before
+    transform: scale(2.3)
+    background-color: var(--accentColor-1)
+
+input[type=checkbox]:not(:disabled) ~ .lever:active:before, input[type=checkbox]:not(:disabled).tabbed:focus ~ .lever::before
+    transform: scale(2.3)
+
+/* Fixed Action Btn */
+.fixed-action-btn
+    &.active>a i
+        animation: rotate unit($transitionTime * 4, 's') linear infinite
+
+    .btn-floating
+        transition: all unit($transitionTime, 's')
+        border-radius: 100%
+        background-color: var(--accentColor-8)
+        box-shadow: 0 0 0.6rem var(--boxShadowColor)
+
+        i
+            color: var(--relativeAccentColor)
+
+/* Box Shadow */
+.z-depth-1, nav, .card-panel, .card, .toast, .btn, .btn-large, .btn-small, .btn-floating, .dropdown-content, .collapsible, .sidenav
+    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.12), 0 1px 5px 0 var(--boxShadowColor)
+
+/* Dropdown */
+.dropdown-content li>a, .dropdown-content li>span
+    color: var(--accentColor)
+    background-color: var(--relativeTextColor)
+
+    &:hover
+        background-color: var(--accentColor-1)
+
+/* Toast */
+.toast
+    color: var(--relativeAccentColor)
+    background-color: var(--textColor)
+
+/* Preloader */
+.spinner-layer
+    border-color: var(--accentColor)
+
+.progress
+    background-color: var(--relativeAccentColor)
+
+    .indeterminate
+        background-color: var(--accentColor)
+
+/* !text-transform */
+a, .btn, .btn-large, .btn-small, .btn-flat
+    text-transform: none !important
+
+/* ====================================
+================ Global ===============
+==================================== */
+html
+    line-height: 2
+    scroll-behavior: smooth
+    transition: background-color 1s ease-in-out
+    color: var(--color-html)
+    background-color: var(--color-bg-html)
+
+/* Mouse */
+/* *
+    cursor: url('/cursor-default.ico'), default
+
+    &:active
+        cursor: url('/cursor-active.ico'), default */
+/* Scrollbar */
+*::-webkit-scrollbar
+    width: 5px
+    height: 5px
+
+*::-webkit-scrollbar-thumb
+    background-color: var(--accentColor)
+
+*::-webkit-scrollbar-track
+    background-color: transparent
+
+/* Sticky Footer */
+body, #app, #app > .theme-container, #body-wrap
+    display: flex
+    min-height: 100vh
+    flex-direction: column
+
+main
+    flex: 1 0 auto
+
+a
+    cursor: pointer
+    color: var(--accentColor)
+    transition: all unit($transitionTime, 's')
+    word-wrap: break-word
+    overflow-wrap: break-word
+
+/* Responsive */
+img, video
+    max-width: 100%
+    height: auto
+    filter: var(--filter)
+
+/* ********** Animate ********** */
+/* @vuepress/plugin-medium-zoom */
+.medium-zoom-overlay
+    background-color: var(--relativeAccentColor) !important
+
+.medium-zoom-overlay ~ img
+    z-index: 1001
+
+.medium-zoom--opened
+    nav, .sidenav
+        display: none
+
+/* ====================================
+================ Z-Index ==============
+==================================== */
+nav, footer
+    z-index: 3
+
+.card-panel
+    z-index: 2
+
+.pagination-wrap
+    z-index: 1
+
+#sidebar-mobile, #sidebar-color
+    z-index: 999
+
+#sidebar-toc
+    z-index: 998
+
+/* ====================================
+================ Navbar ===============
+==================================== */
+nav
+    transition: all unit($transitionTime, 's')
+    background-color: var(--accentColor)
+    z-index: 100
+    top: -64px
+
+    a i.material-icons.left
+        margin-right: 0
+
+        &+span
+            margin-left: 0.3rem
+
+    a i.material-icons.right
+        margin-left: 0.3rem
+
+    .brand-logo, ul a
+        color: var(--relativeTextColor)
+
+    .nav-wrapper:not(.searchbox-*)
+        padding: 0 0.3rem
+
+    @media only screen and (max-width: $screenSmall)
+        top: -56px
+
+    &.fixed
+        position: fixed
+        background-color: var(--accentColor-8)
+
+    &.visible
+        transform: translate3d(0, 100%, 0)
+
+    .brand-logo
+        font-size: 1.8rem
+
+.searchbox-input, .searchbox-result-list
+    box-shadow: 0 1px 0 0 $boxShadowColor
+
+.searchbox-input
+    background-color: var(--accentColor-8)
+
+    .input-field
+        input, label, .material-icons
+            color: var(--relativeTextColor) !important
+
+        input
+            margin: 0
+            font-size: 130%
+
+            &::placeholder
+                color: var(--color-rgba-navbar) !important
+
+            &:focus, &:hover
+                background-color: transparent !important
+
+.searchbox-result-list
+    background-color: var(--accentColor-7)
+    max-height: 20rem
+    overflow: scroll
+    overflow-x: hidden
+
+    .searchbox-result-item
+        padding: 0 1.5rem
+        height: 4rem
+        line-height: 4rem
+        transition: all unit($transitionTime, 's')
+
+        &:before
+            content: '•'
+            margin-right: 10px
+
+        &.focused, &:hover
+            font-weight: 600
+            background-color: var(--accentColor-8)
+
+/* ====================================
+================ Popup ================
+==================================== */
+/* Modal */
+.modal
+    color: var(--textColor)
+    background-color: var(--relativeAccentColor)
+
+/* Sidebar */
+.sidenav
+    color: var(--textColor)
+
+    li>a, li>a>i, li>a>i.material-icons
+        color: var(--color-popup)
+
+    overflow: hidden
+    overflow-y: scroll
+    background-color: var(--relativeAccentColor)
+
+#sidebar-mobile
+    .user-view
+        height: 160px
+        margin: 0
+
+        .avatar
+            text-align: center
+
+            .circle
+                display: inline-block
+                padding: 0
+                width: 130px
+                height: 130px
+
+    li>a
+        padding: 0 2rem
+
+    li:not(:first-child):hover
+        transition: all 0.3s
+
+    li>a:hover, .collapsible-header:hover, li.active, .collapsible-body li:hover
+        border-top-left-radius: 1rem
+        border-bottom-left-radius: 1rem
+        background-color: var(--accentColor-1)
+
+    .collapsible-body
+        background-color: transparent
+
+        li a
+            padding-left: 4rem
+
+#sidebar-color
+    padding: 0 1rem
+    $a(var(--accentColor))
+
+/* Table of Contents */
+#sidebar-toc
+    width: 20rem
+
+    &.table-of-contents
+        a
+            padding: 0
+            transition: all 0.3s
+            border-top-right-radius: 1rem
+            border-bottom-right-radius: 1rem
+
+        a:hover, a.active
+            border-left: 6px solid var(--accentColor)
+            background-color: var(--accentColor-1)
+
+        $padding = 1
+
+        [class*='level-'] a, li:first-child a
+            padding-left: unit($padding, 'rem')
+
+        /* h1 ~ h6 */
+        >.level-1~.level-2
+            a
+                padding-left: unit($padding + 1, 'rem')
+
+            &~.level-3
+                a
+                    padding-left: unit($padding + 2, 'rem')
+
+                &~.level-4
+                    a
+                        padding-left: unit($padding + 3, 'rem')
+
+                    &~.level-5
+                        a
+                            padding-left: unit($padding + 4, 'rem')
+
+                        &~.level-6
+                            a
+                                padding-left: unit($padding + 5, 'rem')
+
+        /* h2 ~ h6 */
+        >.level-2~.level-3
+            a
+                padding-left: unit($padding + 1, 'rem')
+
+            &~.level-4
+                a
+                    padding-left: unit($padding + 2, 'rem')
+
+                &~.level-5
+                    a
+                        padding-left: unit($padding + 3, 'rem')
+
+                    &~.level-6
+                        a
+                            padding-left: unit($padding + 4, 'rem')
+
+        /* h3 ~ h6 */
+        >.level-3~.level-4
+            a
+                padding-left: unit($padding + 1, 'rem')
+
+            &~.level-5
+                a
+                    padding-left: unit($padding + 2, 'rem')
+
+                &~.level-6
+                    a
+                        padding-left: unit($padding + 3, 'rem')
+
+        /* h4 ~ h6 */
+        >.level-4~.level-5
+            a
+                padding-left: unit($padding + 1, 'rem')
+
+            &~.level-6
+                a
+                    padding-left: unit($padding + 2, 'rem')
+
+        /* h5 ~ h6 */
+        >.level-5~.level-6
+            a
+                padding-left: unit($padding + 1, 'rem')
+
+@media only screen and (min-width: $screenLarge)
+    $margin = 20rem
+
+    #sidebar-toc, #body-wrap
+        transition: all unit($transitionTime * 3, 's')
+
+    #sidebar-toc
+        width: $margin
+        transform: translateX((- $margin)) !important
+
+        &.open
+            transform: translateX(0) !important
+
+    #body-wrap
+        &.open
+            margin-left: $margin
+
+            nav
+                padding-right: $margin
+
+/* ====================================
+================= Main ================
+==================================== */
+main
+    >:first-child
+        margin-top: 1.5%
+
+    >:last-child
+        margin-bottom: 1.5%
+
+.main-wrapper>div:only-child
+    width: 100% !important
+
+/* Content List */
+@media only screen and (min-width: $screenSmall)
+    .main-wrapper.flex-wrap
+        display: flex
+        align-items: flex-start
+
+        .left-side
+            order: 0
+
+        .right-side
+            order: 2
+
+#content-list > div:not(.post):not(.pagination-wrap)
+    animation: fadeInDown
+    animation-delay: 0.2s
+    animation-duration: 0.3s
+    animation-fill-mode: both
+
+/* Aside List */
+@media only screen and (min-width: $screenMedium)
+    #aside-list.sticky_layout // sticky layout
+        position: sticky
+        position: -webkit-sticky
+        top: 10px
+
+#aside-list .widget .content
+    padding: 0 1rem
+
+/* Card && Card Panel */
+.card, .card-panel
+    border-radius: 6px
+    color: var(--textColor)
+    background-color: var(--relativeAccentColor)
+    $hoverable()
+
+    /* Mask */
+    &.card-mask:before
+        position: absolute
+        top: 0
+        left: 0
+        display: block
+        width: 100%
+        height: 100%
+        background-color: rgba(0, 0, 0, 0.5)
+        content: ''
+        border-radius: 6px
+
+    /* Sticky */
+    .sticky
+        overflow: hidden
+        position: absolute
+        top: 0
+        left: 0
+        width: 100%
+        height: 100%
+        content: ''
+        border-radius: 6px
+
+        &:before
+            display: flex
+            justify-content: center
+            align-items: center
+            transform: rotate(-45deg) scale(0.9)
+            background-color: var(--accentColor)
+            color: #eee
+            position: absolute
+            width: 100%
+            line-height: 1.2
+            font-weight: bold
+            bottom: 0.6rem
+            left: 46%
+            content: attr(data-sticky)
+
+/* Post */
+.post-title, .post-desc, .post-meta-wrap
+    position: relative
+
+.post-title, .post-desc
+    overflow: hidden
+    word-break: break-word
+    margin: 0
+
+.post-title
+    font-size: 150%
+    line-height: 1
+
+.post-desc
+    height: 6rem
+
+.post-meta-wrap
+    display: flex
+    align-items: center
+
+    @media only screen and (max-width: $screenSmall)
+        display: inline
+
+        .separator
+            display: none
+
+    .material-icons
+        font-size: 100%
+        margin-right: 0.1rem
+
+    .meta
+        display: flex
+        align-items: center
+
+.post-meta-wrap.category
+    font-size: 115%
+
+#article-container.card-panel
+    padding: 1rem
+
+    @media only screen and (min-width: $screenMedium)
+        padding: 1.5rem
+
+    @media only screen and (min-width: $screenLarge)
+        padding: 2rem
+
+/* Pagination */
+.pagination
+    li a
+        color: var(--textColor) !important
+
+    li.chevron a
+        padding: 0
+
+    li.active
+        a
+            color: var(--relativeTextColor) !important
+            text-shadow: 0 0 0.2em var(--relativeTextColor)
+
+        font-weight: bold
+        background-color: var(--accentColor)
+
+    li:not(.active) a:hover
+        animation: flash unit($transitionTime * 4, 's') linear infinite
+
+/* ====================================
+================ Footer ===============
+==================================== */
+footer
+    position: relative
+    transition: all unit($transitionTime, 's')
+    background-color: var(--accentColor)
+    box-shadow: 0 -2px 2px 0 var(--boxShadowColor), 0 3px 1px -2px rgba(0, 0, 0, 0.12), 0 1px 5px 0 rgba(0, 0, 0, 0.2)
+
+    .footer-wrapper
+        a
+            font-weight: 600
+            color: var(--relativeTextColor)
+
+            &:hover
+                color: var(--textColor)
+                border-bottom: 1px solid var(--textColor)
+
+        position: relative
+        padding: 1rem
+        color: var(--relativeTextColor)
+        text-align: center
+
+/* ====================================
+================ Extra ================
+==================================== */
+/* Hr */
+hr.title
+    position: relative
+    margin: 2rem auto
+    margin-top: 3rem
+    border: 1px solid var(--textColor)
+
+    &:before
+        position: absolute
+        background-color: var(--relativeAccentColor)
+        content: attr(title)
+        top: -2rem
+        left: 5%
+        color: var(--accentColor)
+        font-size: 3rem
+        line-height: 1.1
+        transition: all unit($transitionTime * 3, 's') ease-in-out
+
+    &:hover:before
+        left: calc(100% - 90%)
+
+/* Separator && Divider */
+.separator, .divider
+    overflow: hidden
+
+.separator
+    margin: 0 0.3rem
+
+    &:before
+        content: var(--separatorContent)
+
+.divider
+    border: 1px solid #e4e4e4

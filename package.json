@@ -1,0 +1,32 @@
+{
+    "name": "vuepress-theme-materialize",
+    "version": "1.1.6",
+    "description": "Materialize theme for VuePress",
+    "main": "index.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/PunkLee2py/vuepress-theme-materialize.git"
+    },
+    "keywords": [
+        "vue",
+        "vuepress",
+        "materialize",
+        "theme"
+    ],
+    "author": "PunkLee",
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/PunkLee2py/vuepress-theme-materialize/issues"
+    },
+    "homepage": "https://github.com/PunkLee2py/vuepress-theme-materialize#readme",
+    "dependencies": {
+        "@vuepress/plugin-blog": "^1.9.3",
+        "@vuepress/plugin-medium-zoom": "^1.7.1",
+        "md5": "^2.3.0",
+        "moment": "^2.29.1",
+        "valine": "^1.4.14"
+    }
+}

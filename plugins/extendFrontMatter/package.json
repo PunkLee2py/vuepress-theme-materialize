@@ -1,0 +1,12 @@
+{
+    "name": "vuepress-plugin-extendFrontMatter",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "keywords": [
+        "vuepress",
+        "vuepress-plugin"
+    ],
+    "author": "Punk Lee",
+    "license": "MIT"
+}
