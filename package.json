@@ -1,6 +1,6 @@
 {
     "name": "vuepress-theme-materialize",
-    "version": "1.1.6",
+    "version": "1.1.7",
     "description": "Materialize theme for VuePress",
     "main": "index.js",
     "scripts": {
