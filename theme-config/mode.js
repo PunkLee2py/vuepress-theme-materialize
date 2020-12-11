@@ -1,17 +1,5 @@
 export default {
-    light2: {
-        /* Non custom */
-        "--img-filter": "brightness(1.1)",
-        /* Base Color */
-        ...makeAlphaColor("--accentColor", "#eee"),
-        "--relativeAccentColor": "#fafafa",
-        "--textColor": "#000",
-        "--relativeTextColor": "#000",
-        "--boxShadowColor": `rgba(${convertRGB("#fcfcfc")}, 0.${6})`,
-        /* Code Color */
-        "--codeBgColor": "#f6f8fa",
-        "--codeLightColor": `rgba(${convertRGB("#000")}, 0.${2})`,
-    },
+    // light2: {},
     dark: {
         /* Non custom */
         "--img-filter": "brightness(0.8)",
@@ -21,11 +9,11 @@ export default {
         "--relativeAccentColor": "#555",
         "--textColor": "#ccc",
         "--relativeTextColor": "#ccc",
-        "--boxShadowColor": `rgba(${convertRGB("#999")}, 0.${2})`,
+        "--boxShadowColor": "rgba(0, 0, 0, 0.3)",
         "--zoomBgColor": "#666",
         /* Code Color */
         "--codeBgColor": "#666",
-        "--codeLightColor": `rgba(${convertRGB("#000")}, 0.${2})`,
+        "--codeBgHighlightColor": "#444",
     },
 };
 export function makeAlphaColor(name, colorVar) {

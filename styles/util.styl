@@ -83,27 +83,23 @@ img.shadow
     filter: drop-shadow(8px 8px 10px green)
 
 /* Flex */
-.flex
+.flex-wrap
     display: flex
+
+    &.start
+        justify-content: flex-start
+
+    &.center
+        justify-content: center
+
+    &.end
+        justify-content: flex-end
 
     &.middle
         align-items: center
 
     &.bottom
         align-items: flex-end
-
-.flex.start
-    justify-content: flex-start
-
-.flex.center
-    justify-content: center
-
-.flex.end
-    justify-content: flex-end
-
-.flex.center-center
-    justify-content: center
-    align-items: center
 
 /* Cover */
 .inner-wrap

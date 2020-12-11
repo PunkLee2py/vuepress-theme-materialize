@@ -58,7 +58,7 @@ img
   left: 0
   width: 100%
   height: 100%
-  object-fit: scale-down
+  object-fit: cover
   background-position: center center
   background-repeat: no-repeat
   z-index: -1

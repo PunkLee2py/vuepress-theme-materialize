@@ -4,7 +4,11 @@
     :class="{ sticky_layout: $themeConfig.pageWidgets.sticky }"
   >
     <div v-for="(item, index) in widgetsComList" :key="index" class="col s12">
-      <component :is="item.com" class="widget"></component>
+      <component
+        :is="item.com"
+        class="widget"
+        :class="['fadeInUp', `delay-${widgetsComList.length - index}`]"
+      ></component>
     </div>
   </div>
 </template>
@@ -38,7 +42,6 @@ export default {
           arr.push({ com: i });
         }
       }
-      // Sort by 'number'
       return arr;
     },
   },

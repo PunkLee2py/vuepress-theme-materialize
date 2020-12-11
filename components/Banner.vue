@@ -1,51 +1,47 @@
 <template>
-    <div class="card banner center" v-if="enable">
-        <div class="banner-content">
-            <div class="title-wrap" v-if="$themeConfig.pageBanner.title">
-                <!-- Effect Title -->
-                <EffectLetters
-                    v-if="$themeConfig.pageBanner.effect > 0"
-                    :effCom="$themeConfig.pageBanner.effect"
-                    class="title"
-                >
-                    {{ $themeConfig.pageBanner.title }}
-                </EffectLetters>
-                <!-- Title -->
-                <h3 v-else class="title animate_text_shadow">
-                    {{ $themeConfig.pageBanner.title }}
-                </h3>
-            </div>
-
-            <!-- Text -->
-            <p class="text" v-if="textList">
-                <span>
-                    <i
-                        class="animate_text_shadow"
-                        v-for="(text, index) in textList"
-                        :key="index"
-                        :style="textItemStyle(index)"
-                    >
-                        {{ text }}
-                    </i>
-                </span>
-            </p>
-        </div>
-        <div
-            class="carousel carousel-slider"
-            :style="$themeConfig.pageBanner.style"
+  <div class="card banner center" v-if="enable">
+    <div class="banner-content">
+      <div class="title-wrap" v-if="$themeConfig.pageBanner.title">
+        <!-- Effect Title -->
+        <EffectLetters
+          v-if="$themeConfig.pageBanner.effect > 0"
+          :effCom="$themeConfig.pageBanner.effect"
+          class="title"
         >
-            <!-- Carousel Item -->
-            <div
-                class="carousel-item"
-                v-for="(item, index) in itemList"
-                :key="index"
-            >
-                <!-- <Img v-if="item.type === 'img'" :src="item.src" />
-        <Video v-else :src="item.src" /> -->
-                <Img :src="item.src" />
-            </div>
-        </div>
+          {{ $themeConfig.pageBanner.title }}
+        </EffectLetters>
+        <!-- Title -->
+        <h3 v-else class="title animate_text_shadow">
+          {{ $themeConfig.pageBanner.title }}
+        </h3>
+      </div>
+
+      <!-- Text -->
+      <p class="text" v-if="textList">
+        <span>
+          <i
+            class="animate_text_shadow"
+            v-for="(text, index) in textList"
+            :key="index"
+            :style="textItemStyle(index)"
+          >
+            {{ text }}
+          </i>
+        </span>
+      </p>
     </div>
+    <div
+      class="carousel carousel-slider"
+      :style="$themeConfig.pageBanner.style"
+    >
+      <!-- Carousel Item -->
+      <div class="carousel-item" v-for="(item, index) in itemList" :key="index">
+        <!-- <Img v-if="item.type === 'img'" :src="item.src" />
+        <Video v-else :src="item.src" /> -->
+        <Img :src="item.src" />
+      </div>
+    </div>
+  </div>
 </template>
 
 <script>
@@ -53,52 +49,52 @@ import EffectLetters from "@theme/components/EffectLetters";
 import { isImg } from "@theme/utils";
 
 export default {
-    components: { EffectLetters },
-    computed: {
-        enable() {
-            let enable = false,
-                enablePage = this.$themeConfig.pageBanner.enable;
-            if (typeof enablePage === "boolean") return enablePage;
+  components: { EffectLetters },
+  computed: {
+    enable() {
+      let enable = false,
+        enablePage = this.$themeConfig.pageBanner.enable;
+      if (typeof enablePage === "boolean") return enablePage;
 
-            if (enablePage instanceof Array) {
-                const clearPath = this.$route.fullPath.replace(
-                    /(?=[^\/tags|categories|timeline\/|^\/tags|categories|timeline]).*/g,
-                    ""
-                );
-                enable = enablePage.includes(clearPath) ? true : false;
-            }
-            return enable;
-        },
-        textList() {
-            return this.resolveArray("text");
-        },
-        itemList() {
-            let data = [];
-            // Identify image or video
-            this.resolveArray("items").map((i) => {
-                data.push({
-                    src: i,
-                    type: isImg(i) ? "img" : "video",
-                });
-            });
-            return data;
-        },
+      if (enablePage instanceof Array) {
+        const clearPath = this.$route.fullPath.replace(
+          /(?=[^\/tags|categories|timelines\/|^\/tags|categories|timelines]).*/g,
+          ""
+        );
+        enable = enablePage.includes(clearPath) ? true : false;
+      }
+      return enable;
     },
-    methods: {
-        /* 始终返回数组格式 */
-        resolveArray(key) {
-            const items = this.$themeConfig.pageBanner[key];
-            return typeof items === "string" ? [items] : items;
-        },
-        textItemStyle(index) {
-            index += 1;
-            const len = this.textList.length;
-            const angle = (360 / len) * index;
-            return {
-                transform: `rotateX(${angle}deg) translateZ(30px)`,
-            };
-        },
+    textList() {
+      return this.resolveArray("text");
     },
+    itemList() {
+      let data = [];
+      // Identify image or video
+      this.resolveArray("items").map((i) => {
+        data.push({
+          src: i,
+          type: isImg(i) ? "img" : "video",
+        });
+      });
+      return data;
+    },
+  },
+  methods: {
+    /* 始终返回数组格式 */
+    resolveArray(key) {
+      const items = this.$themeConfig.pageBanner[key];
+      return typeof items === "string" ? [items] : items;
+    },
+    textItemStyle(index) {
+      index += 1;
+      const len = this.textList.length;
+      const angle = (360 / len) * index;
+      return {
+        transform: `rotateX(${angle}deg) translateZ(30px)`,
+      };
+    },
+  },
 };
 </script>
 
@@ -169,10 +165,6 @@ export default {
         -webkit-backface-visibility: hidden
         backface-visibility: hidden
         text-indent: 1rem
-
-      /* for i in 1 .. 6
-      >i:nth-of-type(n+{i})
-        transform: rotateX((360 / 6 * i)deg) translateZ(30px) */
 
 @keyframes text_rotate
   to

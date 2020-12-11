@@ -25,6 +25,12 @@ module.exports = {
         location: 0,
     },
     /**************************************
+    Page 404 - 404页面
+    **************************************/
+    page404: {
+        message: "BAD REQUEST", // or ["msg1", "msg2"]
+    },
+    /**************************************
     Navbar - 导航栏链接
     **************************************/
     nav: [],
@@ -36,11 +42,11 @@ module.exports = {
     Page Banner - 页面顶部Banner
     **************************************/
     pageBanner: {
-        enable: false, // or ["/", "/tags/", "/categories/", "/timeline/"]
+        enable: false, // or ["/", "/tags/", "/categories/", "/timelines/"]
         effect: 0,
         title: "",
         text: "", // or ["text1", "text2", ...]
-        items: "", // or ["img1", "video2", ...]
+        items: "", // or ["img1", "img2", ...]
         style: {},
     },
     /**************************************
@@ -50,14 +56,15 @@ module.exports = {
     /**************************************
     Page Card Widgets - 页面侧边小部件
     **************************************/
-    // or all off: set value to false
     pageWidgets: {
         sticky: false, // sticky layout
-        CardInfo: true, // "number for positive integer" to set location or false
-        CardNotice: true, // ...
-        CardClock: false, // ...
-        CardSiteInfo: true, // ...
+        CardInfo: true,
+        CardNotice: true,
+        CardClock: false,
+        CardSiteInfo: true,
     },
+    // or all disable
+    // pageWidgets: false,
     /**************************************
     Theme Locales - 主题多语言配置
     **************************************/
@@ -69,13 +76,17 @@ module.exports = {
     /**************************************
     Notice - 网站公告
     **************************************/
-    notice: "There are no announcements...",
+    notice: "",
+    /**************************************
+    Sort by time - 按时间排序(创建/修改)时间
+    **************************************/
+    sort: "ctime", // "ctime" or "mtime"
     /**************************************
     SiteInfo - 站点信息
     **************************************/
     // Blog Start Date - 博客项目的创建时间
     // format: 2020-02-02 20:20:20
-    // default: The docs project creation time
+    // default: 'docs' folder creation time
     docsDate: "",
     /**************************************
     Footer
@@ -97,7 +108,7 @@ module.exports = {
     Search - 搜索
     **************************************/
     search: {
-        placeholder: "Please enter title or tag or category",
+        placeholder: "Please enter title/tag/category",
         maxSuggestions: 10,
         hotKeys: "F2",
     },
@@ -112,25 +123,14 @@ module.exports = {
         lang: "en",
     },
     /**************************************
-    Page404 - 404页面
-    **************************************/
-    error404: {
-        style: {},
-        message: "BAD REQUEST",
-    },
-    /**************************************
     Image - 全局图片设置
     **************************************/
     img: {
         loading: "", // "/loadingImg.gif" or "loadingImg.svg"
-        svg: 10, // 0 ~ 11 // Or use theme svg effects
-        error: "",
-        global: "https://picsum.photos/400/200",
+        loadingSvg: 10, // 0 ~ 11 // if not set loading, default to use theme svg effects
+        error: "", // "/errorImg.png"
+        global: "https://picsum.photos/400/200", // For posts without a cover
     },
-    /**************************************
-    Sort by time - 按时间排序(创建/修改)时间
-    **************************************/
-    sort: "ctime", // "ctime" or "mtime"
     /**************************************
     Sidebar: Accent Color - 主题可选主调色
     **************************************/

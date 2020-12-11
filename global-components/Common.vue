@@ -22,7 +22,7 @@
               </div>
             </div>
             <!-- Main Content -->
-            <div class="main-wrapper flex-wrap row">
+            <div class="main-wrapper layout-wrap row">
               <!-- Content List -->
               <div
                 id="content-list"

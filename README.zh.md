@@ -2,15 +2,13 @@
 
 Materialize theme for VuePress
 
-中文介绍 --> [访问](./README.zh.md)
-
-## Introduce
+## 介绍
 
 -   This is a Vuepress theme
 -   Themes built with [Materialize UI](https://materializecss.com/)
 -   Designed to provide the most convenient experience
 
-## Quick start
+## 快速开始
 
 ### npm
 
@@ -29,27 +27,27 @@ module.exports = {
 };
 ```
 
-## Preview
+## 博客预览
 
-### HomePage
+### 主页
 
 ![HomePage](./preview/HomePage.png)
 
-### TagPage
+### 标签页
 
 ![TagPage](./preview/TagPage.png)
 
-### TimeLinePage
+### 时间轴页
 
 ![TimeLinePage](./preview/TimelinePage.png)
 
-### Demo
+### 演示博客
 
-[My Blog Page](https://punk_lee.gitee.io/)
+[PunkLee Blog](https://punk_lee.gitee.io/)
 
 ## FrontMatter
 
-A full `frontmatter` case:
+一个完整的`frontmatter`:
 
 ```yaml
 ---
@@ -70,89 +68,89 @@ password: 20201211
 
 ```
 
-### Predefined Variables
+### 预定义变量
 
 **title**
 
--   Type:`string`
--   Default:`The file name`
--   Description: Title of the posts
+-   类型:`string`
+-   Default:`该文件名`
+-   说明: 文章的标题
 
 **tags**
 
--   Type:`array`
+-   类型:`array`
 -   Default:`[]`
--   Description: Tag of the posts
+-   说明: 文章的标签
 
 **categories**
 
--   Type:`array`
+-   类型:`array`
 -   Default:`[]`
--   Description: Category of posts
+-   说明: 文章的类别
 
 **description**
 
--   Type:`string`
--   Default:`get the first 78 characters of the article (except HTML tags)`
--   Description: Description of the posts
+-   类型:`string`
+-   Default:`获取文章前78个字符（除了HTML标签）`
+-   说明: 文章的描述
 
 **cover**
 
--   Type:`string`
+-   类型:`string`
 -   Default:`$themeConfig.img.global`
--   Description: Cover of the posts
+-   说明: 文章的封面
 
 **coverStyle**
 
--   Type:`string`
+-   类型:`string`
 -   Default:`undefined`
--   Description: Cover style of the posts
+-   说明: 文章的封面样式
 
 **sticky**
 
--   Type:`string`
+-   类型:`string`
 -   Default:`undefined`
--   Description: Sticky posts, accept string as sticky text
+-   说明: 使文章置顶，填写的内容将作为置顶的文字
 
 **toc**
 
--   Type:`boolean`
+-   类型:`boolean`
 -   Default:`true`
--   Description: Table of content
+-   说明: 文章的侧边栏目录，默认开启
 
 **comments**
 
--   Type:`boolean`
+-   类型:`boolean`
 -   Default:`true`
--   Description: Comments of the posts
+-   说明: 文章的评论，默认开启
 
 **password**
 
--   Type:`string`
+-   类型:`string`
 -   Default:`undefined`
--   Description: Encrypted posts
+-   说明: 文章的密码
 
-## ThemeConfig
+## 主题的配置
 
-> **tips:** The timeline, tabs and categories page default is enable
+> **tips:** 默认开启所有页面（标签/分类/时间轴页面）
 
-### Basic Config
+### 基础配置
 
-The default as:
+默认为:
 
 ```js
 // .vuepress/config.js
 module.exports = {
     themeConfig: {
-        avatar: "", // your avatar picture
-        notice: "", // website notice in card widget
-        sort: "ctime", // sort the list of posts by created or updated time
-        docsDate: "", // 'docs' folder creation time
+        avatar: "", // 你的头像图像
+        notice: "", // 在侧边小部件中展示的公告
+        sort: "ctime", // 文章默认按照创建时间来排序
+        docsDate: "", // 'docs' 文件夹的创建时间，将显示为博客的运行天数
         footer: {
-            start: "", // blog start date
-            end: "", // blog start date, default is automatic fetch
+            start: "", // 博客的起始日期
+            end: "", // 博客的到期日期，默认自动获取
             customText: "", // or ["text1", "text2 <a href='/'>link</a>", ...]
-            themeInfo: true, // or false: disable to show theme info
+            themeInfo: true, // or false: 禁止显示主题的信息
         },
         pagination: {
             perPage: 6,
@@ -164,21 +162,21 @@ module.exports = {
 
 **avatar||notice**
 
--   Type:`string`
+-   类型:`string`
 
 **sort**
 
--   Type:`string`
--   Optional: `ctime` `mtime`
+-   类型:`string`
+-   可选值: `ctime` `mtime`
 
 **docsDate**
 
--   Type:`string`
--   Format: `YYYY-MM-DD HH:mm:ss`
+-   类型:`string`
+-   格式: `YYYY-MM-DD HH:mm:ss`
 
-### Tags/Categories/Timelines Page
+### 标签/分类/时间轴 页面
 
-The default as:
+默认为:
 
 ```js
 // .vuepress/config.js
@@ -207,35 +205,35 @@ module.exports = {
 
 **text**
 
--   Type:`string`
--   Description: Text displayed in the blog
+-   类型:`string`
+-   说明: 在博客或导航栏显示的文本
 
 **icon**
 
--   Type:`string`
--   Description: Icons displayed in blogs
+-   类型:`string`
+-   说明: 在博客或导航栏显示的图标
 
 **location**
 
--   Type:`number`
--   Description: Location in navbar menu
+-   类型:`number`
+-   说明: 在博客或导航栏显示的位置
 
 **tableClass**
 
--   Type:`string`
--   Optional style: `striped` `highlight` `centered`
--   Description: The table style rendered in the tags/categories page
+-   类型:`string`
+-   可选样式: `striped` `highlight` `centered`
+-   说明: 在“标记/类别”页中呈现的表格样式
 
 ### Navbar
 
-Example:
+例子:
 
 ```js
 // .vuepress/config.js
 module.exports = {
     themeConfig: {
         nav: [
-            // Single link in navbar:
+            // 在导航栏中的单链接:
             {
                 text: "first link",
                 icon: "extension",
@@ -244,7 +242,7 @@ module.exports = {
                 location: 1,
             },
 
-            // Dropdown in navbar:
+            // 在导航栏中的下拉列表:
             {
                 text: "AboutMe",
                 items: [
@@ -267,32 +265,32 @@ module.exports = {
 
 **text**
 
--   Type:`string`
--   Description: Text displayed in the navbar
+-   类型:`string`
+-   说明: 导航栏中显示的文本
 
 **icon**
 
--   Type:`string`
--   Description: Icons displayed in navbar
+-   类型:`string`
+-   说明: 导航栏中显示的图标
 
 **link**
 
--   Type:`string`
--   Description: Navbar link
+-   类型:`string`
+-   说明: 导航栏链接
 
 **location**
 
--   Type:`number`
--   Description: Location in navbar menu
+-   类型:`number`
+-   说明: 导航栏中显示的位置
 
 **target**
 
--   Type:`string`
--   Optional: `_blank` `_self`
+-   类型:`string`
+-   可选: `_blank` `_self`
 
-### Page Loading Effect
+### 页面加载效果
 
-The default as:
+默认为:
 
 ```js
 // .vuepress/config.js
@@ -305,29 +303,29 @@ module.exports = {
 
 **text**
 
--   Type:`string`
--   Description: Text in preloader effect
+-   类型:`string`
+-   说明: 被预加载效果包裹的文本
 
-**com**
+**com**·
 
--   Type:`number`
--   Optional: `0-12`
--   Description: Index of the component
+-   类型:`number`
+-   可选: `0-12`
+-   说明: 组件的索引值
 
 **side**
 
--   Type:`string`
--   Optional: `left` `right` `top` `bottom`
--   Description: Direction in which the effect ends
+-   类型:`string`
+-   可选: `left` `right` `top` `bottom`
+-   说明: 加载效果结束的方向
 
 **delay**
 
--   Type:`number`
--   Description: Delay loading effect, In milliseconds
+-   类型:`number`
+-   说明: 延迟加载效果（毫秒）
 
-### Page Post Card
+### 页面的文章卡
 
-The default as:
+默认为:
 
 ```js
 // .vuepress/config.js
@@ -340,40 +338,40 @@ module.exports = {
 
 **side**
 
--   Type:`string`
--   Optional:`left` `right`
--   Description: The side of the post list in the page
+-   类型:`string`
+-   可选:`left` `right`
+-   说明: 页面中文章列表的位置
 
 **com**
 
--   Type:`number`
--   Optional: `0-2`
--   Description: Index of the component
+-   类型:`number`
+-   可选: `0-2`
+-   说明: 组件的索引值
 
-### Page Card Widgets
+### 页面的小部件
 
-The default as:
+默认为:
 
 ```js
 // .vuepress/config.js
 module.exports = {
     themeConfig: {
         pageWidgets: {
-            sticky: false, // sticky layout
+            sticky: false, // 粘性布局
             CardInfo: true,
             CardNotice: true,
             CardClock: false,
             CardSiteInfo: true,
         },
-        // or all disable
+        // 设为false将全部禁用
         // pageWidgets: false,
     },
 };
 ```
 
-### Page Banner
+### 页面的顶部 Banner
 
-The default as:
+默认为:
 
 ```js
 // .vuepress/config.js
@@ -393,54 +391,54 @@ module.exports = {
 
 **enable**
 
--   Type:`boolean||array`
--   Description: `true || false` is all enable or all disable, `["/tags/", "/categories/"]` is enable in the tags and categories page
+-   类型:`boolean||array`
+-   说明: `true || false` 全部启用或全部禁用, `["/tags/", "/categories/"]` 只显示在列表中指定的路由地址
 
 **effect**
 
--   Type:`number`
--   Optional: `1-10`
--   Description: Effect Letters Title, disable by default
+-   类型:`number`
+-   可选: `1-10`
+-   说明: 标题的效果，默认禁用
 
 **title**
 
--   Type:`string`
--   Description: If no effect value, The effect is the same as text by default
+-   类型:`string`
+-   说明: 如未设置`effect`的值，将和`text`的效果相同
 
 **text**
 
--   Type:`string||array`
--   Description: The text displayed in the banner
+-   类型:`string||array`
+-   说明: banner 中显示的文本
 
 **items**
 
--   Type:`string||array`
--   Description: The image displayed in the banner
+-   类型:`string||array`
+-   说明: banner 中显示的图像，可设置多张图像
 
-### Search Config
+### 搜索配置
 
-> Currently, only local search is supported
+> 目前只支持本地搜索
 
-The default as:
+默认为:
 
 ```js
 // .vuepress/config.js
 module.exports = {
     themeConfig: {
         search: {
-            placeholder: "Please enter title/tag/category",
-            maxSuggestions: 10,
-            hotKeys: "F2",
+            placeholder: "Please enter title/tag/category", // 占位符
+            maxSuggestions: 10, // 搜索结果的最大建议数
+            hotKeys: "F2", // 热键
         },
     },
 };
 ```
 
-### Comment Config
+### 评论配置
 
-> Currently only [Valine](https://valine.js.org/en/index.html) is supported
+> 目前只支持 [Valine](https://valine.js.org/)
 
-> `appId` and `appKey` is required
+> `appId` 和 `appKey` 是必需的，不然无法使用评论功能
 
 The default as:
 
@@ -459,9 +457,9 @@ module.exports = {
 };
 ```
 
-### 404 Page
+### 404 页面
 
-The default as:
+默认为:
 
 ```js
 // .vuepress/config.js
@@ -476,19 +474,19 @@ module.exports = {
 
 **message**
 
--   Type:`string||array`
--   Description: Text displayed in 404 page, If value is a array, it will be displayed randomly
+-   类型:`string||array`
+-   说明: 404 页面显示的文本，如果设置的值是数组，则随机显示
 
-### Extra Config
+### 额外配置
 
 ```js
 // .vuepress/config.js
 module.exports = {
     themeConfig: {
-        // Color options in the sidebar
+        // 侧栏中的颜色选项
         colorList: [],
 
-        // Global Image
+        // 全局图像设置
         img: {
             loading: "", // "/loadingImg.gif" or "loadingImg.svg"
             loadingSvg: 10, // 0 ~ 11 // if not set loading, default to use theme svg effects

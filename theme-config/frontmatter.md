@@ -11,7 +11,7 @@ title: Demo
 tags:
     - demoTag1
     - demoTag2
-# 分类：['default']
+# 分类：[]
 categories:
     - DemoCategory
 # 描述：自动获取前78个字符（除了HTML标签）

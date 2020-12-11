@@ -13,7 +13,7 @@ module.exports = (options = {}, context) => ({
             regularPath, // 当前页面遵循文件层次结构的默认链接
         } = $page;
 
-        if (_filePath) {
+        if (_filePath && _content) {
             const fStat = fs.statSync(_filePath);
             const fName = path.basename(_filePath);
             /* 为每篇文章设置属性
@@ -27,7 +27,7 @@ module.exports = (options = {}, context) => ({
             // tags && categories
             const { tags, categories } = frontmatter;
             $page.frontmatter.tags = tags || [];
-            $page.frontmatter.categories = categories || ["Default"];
+            $page.frontmatter.categories = categories || [];
             // description
             const { description } = frontmatter;
             let articleContent = _strippedContent;

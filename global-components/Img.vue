@@ -32,7 +32,7 @@ export default {
     };
   },
   mounted() {
-    const { global, loading, error, svg } = this.$themeConfig.img;
+    const { global, loading, loadingSvg: svg, error } = this.$themeConfig.img;
     const loadingSvg = require(`../images/svg-loaders/${SVG_LOADERS[svg]}`);
     const loadingImg = loading || loadingSvg;
     const errorImg = error || require("../images/404.png");

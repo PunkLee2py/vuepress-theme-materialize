@@ -1,5 +1,5 @@
 <template>
-  <div class="card-panel">
+  <div v-if="$themeConfig.notice" class="card-panel">
     <div class="title valign-wrapper">
       <i class="material-icons">notifications_active</i>
       <b class="ml-6">{{ $locales.aside.notice }}</b>
